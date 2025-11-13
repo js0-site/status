@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "dependencies": {
+    "@3-/yml": "^0.1.14",
+    "ioredis": "^5.8.2"
+  }
+}
