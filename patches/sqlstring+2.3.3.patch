@@ -1,0 +1,13 @@
+diff --git a/node_modules/sqlstring/lib/SqlString.js b/node_modules/sqlstring/lib/SqlString.js
+index 8206dad..3f7e971 100644
+--- a/node_modules/sqlstring/lib/SqlString.js
++++ b/node_modules/sqlstring/lib/SqlString.js
+@@ -44,6 +44,8 @@ SqlString.escape = function escape(val, stringifyObjects, timeZone) {
+         return SqlString.dateToString(val, timeZone || 'local');
+       } else if (Array.isArray(val)) {
+         return SqlString.arrayToList(val, timeZone);
++      } else if ( val instanceof Uint8Array ) {
++        return SqlString.bufferToString(Buffer.from(val));
+       } else if (Buffer.isBuffer(val)) {
+         return SqlString.bufferToString(val);
+       } else if (typeof val.toSqlString === 'function') {
