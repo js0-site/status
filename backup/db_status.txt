@@ -1,3 +1,26 @@
+CREATE TABLE IF NOT EXISTS `errFixed` (
+`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+`srv_id` bigint(20) unsigned NOT NULL,
+`vps_id` bigint(20) unsigned NOT NULL,
+`txt_id` bigint(20) unsigned NOT NULL,
+`begin` bigint(20) unsigned NOT NULL,
+`duration` int(20) unsigned NOT NULL,
+PRIMARY KEY (`id`) /*T![clustered_index] CLUSTERED */
+);
+CREATE TABLE IF NOT EXISTS `errIng` (
+`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+`srv_id` bigint(20) unsigned NOT NULL,
+`vps_id` bigint(20) unsigned NOT NULL,
+`txt_id` bigint(20) unsigned NOT NULL,
+`ts` bigint(20) unsigned NOT NULL,
+PRIMARY KEY (`id`) /*T![clustered_index] CLUSTERED */
+);
+CREATE TABLE IF NOT EXISTS `srv` (
+`id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+`val` varchar(255) NOT NULL,
+PRIMARY KEY (`id`) /*T![clustered_index] CLUSTERED */,
+UNIQUE KEY `val` (`val`)
+);
 CREATE TABLE IF NOT EXISTS `txt` (
 `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
 `hash` binary(32) NOT NULL,
