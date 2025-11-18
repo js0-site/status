@@ -8,15 +8,24 @@ import isoMin from "@3-/time/isoMin.js";
 import srvId from "./db/srvId.js";
 import VPS_IP_NAME from "./db/VPS_IP_NAME.js";
 import VPS_ID_IP from "./db/VPS_ID_IP.js";
+import int from "@3-/int";
+import R from "./R.js";
 
 const TASK = new Map(),
-  watch = () => {
-    console.log("→", isoMin());
-    TASK.forEach(async (li, srv) => {
-      li.forEach(([srv_id, tag, vps, ...args]) => {
-        ping(srv, tag, srv_id, vps, args);
-      });
-    });
+  watch = async () => {
+    let now = new Date();
+    console.log("→", isoMin(now));
+    now = int(now / 1e3);
+    await Promise.all(
+      TASK.entries().map(async ([srv, li]) =>
+        Promise.all(
+          li.map(([srv_id, tag, vps, ...args]) =>
+            ping(now, srv, tag, srv_id, vps, args),
+          ),
+        ),
+      ),
+    );
+    await R.setex("status:ts", 864e3, now);
   };
 
 await Promise.all(
@@ -43,5 +52,5 @@ await Promise.all(
   }),
 );
 
-watch();
+await watch();
 setInterval(watch, 6e4);

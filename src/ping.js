@@ -5,7 +5,7 @@ import ERR from "./db/ERR.js";
 import log from "@3-/console/log.js";
 import recover from "./db/recover.js";
 
-export default async (srv, tag, srv_id, vps, args) => {
+export default async (now, srv, tag, srv_id, vps, args) => {
   const ac = new AbortController(),
     timer = setTimeout(() => {
       ac.abort();
@@ -31,7 +31,7 @@ export default async (srv, tag, srv_id, vps, args) => {
     clearTimeout(timer);
     if (pre_err) {
       errmap.delete(vps_id);
-      await recover(srv_name, srv_id, vps_id, pre_err);
+      await recover(now, srv_name, srv_id, vps_id, pre_err);
     } else {
       log("✅", srv_name);
     }
@@ -46,7 +46,7 @@ export default async (srv, tag, srv_id, vps, args) => {
       }
     }
 
-    await errIngNew(errmap, err, srv_name, srv_id, vps_id);
+    await errIngNew(now, errmap, err, srv_name, srv_id, vps_id);
     console.error("❌", srv_name, err);
   }
 };

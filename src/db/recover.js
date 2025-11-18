@@ -1,11 +1,16 @@
 import log from "@3-/console/log.js";
-import nowts from "@3-/nowts";
 import send from "../send.js";
 import DB from "../DB.js";
 import ERR from "./ERR.js";
 
-export default async (name, srv_id, vps_id, [_, begin, errIng_id, txt_id]) => {
-  const cost = nowts() - begin,
+export default async (
+  now,
+  name,
+  srv_id,
+  vps_id,
+  [_, begin, errIng_id, txt_id],
+) => {
+  const cost = now - begin,
     msg = "✅ " + name;
 
   let txt = "恢复耗时 " + Math.floor(cost / 6) / 10 + " 分钟";

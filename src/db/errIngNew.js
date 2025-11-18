@@ -1,11 +1,9 @@
-import nowts from "@3-/nowts";
 import DB from "../DB.js";
 import txtId from "./txtId.js";
 import send from "../send.js";
 
-export default async (errmap, err, name, srv_id, vps_id) => {
-  const now = nowts(),
-    pre_err = errmap.get(vps_id);
+export default async (now, errmap, err, name, srv_id, vps_id) => {
+  const pre_err = errmap.get(vps_id);
 
   if (pre_err && err == pre_err[0]) {
     return;
