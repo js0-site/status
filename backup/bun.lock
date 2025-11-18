@@ -6,7 +6,6 @@
       "dependencies": {
         "@3-/coffee_plus": "^0.1.29",
         "@3-/loader": "^0.0.2",
-        "@3-/nowts": "^0.1.1",
         "coffeescript": "^2.7.0",
       },
     },
@@ -21,8 +20,6 @@
     "@3-/jsext": ["@3-/jsext@0.0.7", "", {}, "sha512-rfwPOOyYRxFvObNS2ZRxjILLo3J79OaIXefxaZFt1wFmvw9LVOpVgVV7RKPgD4zXoJfmzz/Pr8+NMlnlrHfMIg=="],
 
     "@3-/loader": ["@3-/loader@0.0.2", "", { "dependencies": { "@3-/coffee_plus": "^0.0.3", "@3-/jsext": "^0.0.1", "coffeescript": "^2.7.0" } }, "sha512-BqcAVmlyKSU0CazHo3Zy1wryOL7YdowEIsqaUyhhwejcBhluuvFM3ugzW+kuF0LQoDU0B+F9g76+9wHxTKw2Mw=="],
-
-    "@3-/nowts": ["@3-/nowts@0.1.1", "http://mirrors.cloud.tencent.com/npm/@3-/nowts/-/nowts-0.1.1.tgz", {}, "sha512-Gbmj0YyqEMZBuEEeAwEQcJnf4RGcBp5FRCavfMZevgbmh5IQqkRS7IrGGwjaernI2PBFgDpaSYSS3E4Uk2whqA=="],
 
     "@3-/read": ["@3-/read@0.1.4", "", {}, "sha512-PZDRfIFuaFNAW6VjWupa7+g/3GbhES6shAgETN/RXtTdJxcIwl9HSBMy2sdfRqAc/FUeUJFL3F8PfpsdZbC8xg=="],
 

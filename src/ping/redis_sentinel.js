@@ -1,10 +1,10 @@
-import Redis from "ioredis";
+import Redis from "@3-/ioredis";
 import pair from "@3-/pair";
 import raise from "@3-/raise";
 // import int from "@3-/int";
 
 const redisGet = async (cluster, conf) => {
-  const s = new Redis(conf),
+  const s = Redis(conf),
     p = s.pipeline();
 
   cluster.forEach((name) => {
@@ -17,8 +17,6 @@ const redisGet = async (cluster, conf) => {
 };
 
 export default async (host, { port, password, cluster, vps }, ip_name) => {
-  let retry = 0;
-
   const err_li = [],
     addErr = err_li.push.bind(err_li),
     errIpPortMsg = (ip, port, msg) => {
@@ -29,13 +27,6 @@ export default async (host, { port, password, cluster, vps }, ip_name) => {
       port,
       password,
       host,
-      retryStrategy: () => {
-        ++retry;
-        if (retry > 2) {
-          raise(ip_name.get(host) + " " + host + ":" + port + " 哨兵无法连接");
-        }
-        return 0;
-      },
     });
 
   const info = result.pop().split("\n");

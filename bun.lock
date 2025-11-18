@@ -7,8 +7,8 @@
         "@3-/console": "^0.1.1",
         "@3-/default": "^0.1.9",
         "@3-/int": "^0.1.1",
+        "@3-/ioredis": "^0.1.2",
         "@3-/ip": "^0.1.2",
-        "@3-/nowts": "^0.1.1",
         "@3-/pair": "^0.0.3",
         "@3-/raise": "^0.1.3",
         "@3-/reset": "^0.1.2",
@@ -21,7 +21,6 @@
         "@8v/lark": "^0.1.5",
         "@8v/mysql": "^0.1.31",
         "@8v/send": "^0.1.19",
-        "ioredis": "^5.8.2",
         "piscina": "^5.1.4",
       },
       "devDependencies": {
@@ -63,9 +62,9 @@
 
     "@3-/int": ["@3-/int@0.1.1", "http://mirrors.cloud.tencent.com/npm/@3-/int/-/int-0.1.1.tgz", {}, "sha512-hBH7ZmKIwSH4URleqo6U0ovTXGXGMEi2Xgr2KxPPcxSlxtoi3Mdsx6MFQz9U484bXpovJulXXwK/aUye0Gqzkw=="],
 
-    "@3-/ip": ["@3-/ip@0.1.2", "http://mirrors.cloud.tencent.com/npm/@3-/ip/-/ip-0.1.2.tgz", {}, "sha512-0et77Rd5/M5coAH6Bl9zQvTu3bFIOymuwRX+hBSFINQC2WIONP5m/cTUfKbK5GAuoQ96jXyq56r2CowPkRrpCQ=="],
+    "@3-/ioredis": ["@3-/ioredis@0.1.2", "https://mirrors.cloud.tencent.com/npm/@3-/ioredis/-/ioredis-0.1.2.tgz", { "dependencies": { "ioredis": "^5.8.2" } }, "sha512-Y8UFgxcZ8g/kYieYbalmGvsdArYSdoSL+uQ6xzq6dHQxTPh0dCoRvT141whUa1TRUlG1IG5+Z5sDfIQi0N/jfw=="],
 
-    "@3-/nowts": ["@3-/nowts@0.1.1", "http://mirrors.cloud.tencent.com/npm/@3-/nowts/-/nowts-0.1.1.tgz", {}, "sha512-Gbmj0YyqEMZBuEEeAwEQcJnf4RGcBp5FRCavfMZevgbmh5IQqkRS7IrGGwjaernI2PBFgDpaSYSS3E4Uk2whqA=="],
+    "@3-/ip": ["@3-/ip@0.1.2", "http://mirrors.cloud.tencent.com/npm/@3-/ip/-/ip-0.1.2.tgz", {}, "sha512-0et77Rd5/M5coAH6Bl9zQvTu3bFIOymuwRX+hBSFINQC2WIONP5m/cTUfKbK5GAuoQ96jXyq56r2CowPkRrpCQ=="],
 
     "@3-/pair": ["@3-/pair@0.0.3", "http://mirrors.cloud.tencent.com/npm/@3-/pair/-/pair-0.0.3.tgz", {}, "sha512-cwA2oySbWmPHYtEm5JHh0ghSM+rwhFdnTTrhL23gy0xjrB936vvWEwe87LvhNQG+TfjjGscg4Xj+/6nAIY7wIA=="],
 

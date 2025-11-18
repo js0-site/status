@@ -1,4 +1,4 @@
 import REDIS from "../conf/REDIS.js";
-import Redis from "ioredis";
+import Redis from "@3-/ioredis";
 
-export default new Redis(REDIS);
+export default Redis(REDIS);

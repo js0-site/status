@@ -25,7 +25,7 @@ const TASK = new Map(),
         ),
       ),
     );
-    await R.setex("status:ts", 864e3, now);
+    await R.setex("status:ts", 864e3, int(now / 60));
   };
 
 await Promise.all(

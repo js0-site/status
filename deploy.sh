@@ -15,8 +15,8 @@ clone(){
   local NAME=\$1
   if [ -d \$NAME ]; then
     cd \$NAME
-    if ! git config --global --get-all safe.directory | grep -qx '/opt/status'; then
-      git config --global --add safe.directory /opt/status
+    if ! git config --global --get-all safe.directory | grep -qx "/opt/\$NAME"; then
+      git config --global --add safe.directory "/opt/\$NAME"
     fi
     git checkout dev && git fetch --all && git reset --hard origin/dev
     cd ..
