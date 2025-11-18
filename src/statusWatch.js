@@ -14,8 +14,8 @@ const statusWatch = async (now) => {
   if (!status_watch_minute) {
     raise(PREFIX + "未运行");
   }
-  const diff = 3 + now_minute - status_watch_minute;
-  if (diff > 3) {
+  const diff = now_minute - status_watch_minute;
+  if (diff > 10) {
     raise(PREFIX + "失联 " + diff + " 分钟");
   }
 };

@@ -20,7 +20,7 @@
         "@8v/curl": "^0.1.7",
         "@8v/lark": "^0.1.5",
         "@8v/mysql": "^0.1.31",
-        "@8v/send": "^0.1.19",
+        "@8v/send": "^0.1.20",
         "piscina": "^5.1.4",
       },
       "devDependencies": {
@@ -94,7 +94,7 @@
 
     "@8v/pushplus": ["@8v/pushplus@0.1.4", "http://mirrors.cloud.tencent.com/npm/@8v/pushplus/-/pushplus-0.1.4.tgz", { "dependencies": { "@8v/curl": "^0.1.7" } }, "sha512-Cd/jOq92F6lvlm21lWeGu+trTImpu1fTN3TMl/9kSiZJQQevstzz+NJF0LXrSm86294G2rctkOvjx+TDDsEXMw=="],
 
-    "@8v/send": ["@8v/send@0.1.19", "http://mirrors.cloud.tencent.com/npm/@8v/send/-/send-0.1.19.tgz", { "dependencies": { "@8v/lark": "^0.1.5", "@8v/pushplus": "^0.1.4" } }, "sha512-EvrrRwST9BubM3hIweehb87tEYxk4njscAXglovR8+C7G6gVCf52bLvdK830s2XbKOEBB8iVsz94pC52B0DidQ=="],
+    "@8v/send": ["@8v/send@0.1.20", "https://mirrors.cloud.tencent.com/npm/@8v/send/-/send-0.1.20.tgz", { "dependencies": { "@8v/lark": "^0.1.5", "@8v/pushplus": "^0.1.4" } }, "sha512-GAb+s2S9JBvq38nYcT1WyLdET6FFTmSDKHY4JClpeTNEFZlqHUIbSsmkUHpWlKrmxzHauDM0rl9+ulf522ZeaQ=="],
 
     "@emnapi/core": ["@emnapi/core@1.7.1", "http://mirrors.cloud.tencent.com/npm/@emnapi/core/-/core-1.7.1.tgz", { "dependencies": { "@emnapi/wasi-threads": "1.1.0", "tslib": "^2.4.0" } }, "sha512-o1uhUASyo921r2XtHYOHy7gdkGLge8ghBEQHMWmyJFoXlpU58kIrhhN3w26lpQb6dspetweapMn2CSNwQ8I4wg=="],
 
