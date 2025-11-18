@@ -1,22 +1,20 @@
 #!/usr/bin/env bun
 // 不要用 node， node 下 fetch 没有 proxy 参数
 
-import VPS_ID_IP from "./db/VPS_ID_IP.js";
 import "@3-/default";
 import loadYml from "./loadYml.js";
 import ping from "./ping.js";
 import isoMin from "@3-/time/isoMin.js";
 import srvId from "./db/srvId.js";
-
-let RAN = 0;
+import VPS_IP_NAME from "./db/VPS_IP_NAME.js";
+import VPS_ID_IP from "./db/VPS_ID_IP.js";
 
 const TASK = new Map(),
   watch = () => {
     console.log("→", isoMin());
-    ++RAN;
     TASK.forEach(async (li, srv) => {
       li.forEach(([srv_id, tag, vps, ...args]) => {
-        ping(RAN, srv, tag, srv_id, vps, args);
+        ping(srv, tag, srv_id, vps, args);
       });
     });
   };
@@ -38,11 +36,12 @@ await Promise.all(
         break;
       case "redis_sentinel":
         const vps = args.vps;
-        push([tag, vps, args, vps.map((vps) => [VPS_ID_IP.get(vps)[1], vps])]);
+        args.vps = vps.slice(1).map((name) => VPS_ID_IP.get(name)[1]);
+        push([tag, vps, args, VPS_IP_NAME]);
         break;
     }
   }),
 );
 
 watch();
-setInterval(watch, 6e4 / 3);
+setInterval(watch, 6e4);

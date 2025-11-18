@@ -5,7 +5,7 @@ import ERR from "./db/ERR.js";
 import log from "@3-/console/log.js";
 import recover from "./db/recover.js";
 
-export default async (ran, srv, tag, srv_id, vps, args) => {
+export default async (srv, tag, srv_id, vps, args) => {
   const ac = new AbortController(),
     timer = setTimeout(() => {
       ac.abort();
@@ -13,17 +13,16 @@ export default async (ran, srv, tag, srv_id, vps, args) => {
     errmap = ERR.default(srv_id, () => new Map()),
     vps_is_array = Array.isArray(vps);
 
-  if (vps_is_array) {
-    vps = vps[ran % vps.length];
-  }
-
-  const srv_name = (tag ? srv + "/" + tag : srv) + " " + vps;
-
-  let [vps_id, ip] = VPS_ID_IP.get(vps);
+  let vps_id, ip;
 
   if (vps_is_array) {
     vps_id = 0;
+    ip = VPS_ID_IP.get(vps[0])[1];
+  } else {
+    [vps_id, ip] = VPS_ID_IP.get(vps);
   }
+  const srv_name =
+    srv + (tag ? "/" + tag : "") + (vps_is_array ? "" : " " + vps);
 
   const pre_err = errmap.get(vps_id);
 

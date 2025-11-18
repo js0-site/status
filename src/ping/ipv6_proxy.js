@@ -1,4 +1,4 @@
-import GOOGLE_TRAN from "../conf/GOOGLE_TRAN.js";
+import GOOGLE_TRAN from "../../conf/GOOGLE_TRAN.js";
 import assert from "node:assert/strict";
 
 const URL = "https://translate-pa.googleapis.com/v1/translateHtml";

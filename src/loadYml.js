@@ -1,6 +1,6 @@
 import ymlLoad from "@3-/yml/load.js";
-import { join } from "node:path";
+import { join, dirname } from "node:path";
 
-const ROOT = import.meta.dirname;
+const ROOT = dirname(import.meta.dirname);
 
 export default (path) => ymlLoad(join(ROOT, "conf", path + ".yml"));
