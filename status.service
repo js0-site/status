@@ -1,0 +1,16 @@
+[Unit]
+Description=Status
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/opt/status
+Environment="PATH=/run/current-system/sw/bin"
+ExecStart=bun ./src/main.js
+PrivateTmp=true
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
