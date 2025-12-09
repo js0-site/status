@@ -13,21 +13,13 @@ export default async (now, srv, tag, srv_id, vps, args) => {
     errmap = ERR.default(srv_id, () => new Map()),
     vps_is_array = Array.isArray(vps);
 
-  let vps_id, ip;
-
-  if (vps_is_array) {
-    vps_id = 0;
-    ip = VPS_ID_IP.get(vps[0])[1];
-  } else {
-    [vps_id, ip] = VPS_ID_IP.get(vps);
-  }
+  const [vps_id] = vps_is_array ? VPS_ID_IP.get(vps[0]) : VPS_ID_IP.get(vps);
   const srv_name =
-    srv + (tag ? "/" + tag : "") + (vps_is_array ? "" : " " + vps);
+    srv + (tag ? "/" + tag : "") + ":" + (vps_is_array ? vps.join("&") : vps);
 
   const pre_err = errmap.get(vps_id);
-
   try {
-    await THREAD_POOL.run([srv, ip, args], { signal: ac.signal });
+    await THREAD_POOL.run([srv, args], { signal: ac.signal });
     clearTimeout(timer);
     if (pre_err) {
       errmap.delete(vps_id);

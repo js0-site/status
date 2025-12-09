@@ -1,3 +1,13 @@
 # 状态监控
 
 ./backup/status.txt 是 tidb 表结构
+
+# 添加新监控
+
+1. 修改 ./conf/watch.yml
+
+2. 修改 ./src/SRV.js
+
+3. ./ping/ 创建监控的 js
+
+4. 可以给服务打标签来区分不同的监控组，比如 `smtp/smtp.js0.site`

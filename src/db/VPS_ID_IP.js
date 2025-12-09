@@ -2,7 +2,7 @@
 
 import binIp from "@3-/ip/binIp.js";
 import ipBin from "@3-/ip/ipBin.js";
-import loadYml from "../loadYml.js";
+import VPS_IP from "./VPS_IP.js";
 import DB from "../DB.js";
 
 const VPS_ID_IP = new Map(
@@ -13,9 +13,9 @@ const VPS_ID_IP = new Map(
 
 await (async () => {
   const to_insert = [];
-  Object.entries(loadYml("host")).forEach(([hostname, ip]) => {
-    if (ip != VPS_ID_IP.get(hostname)) {
-      to_insert.push([hostname, ip]);
+  Object.entries(VPS_IP).forEach(([hostname, ip]) => {
+    if (ip.v4 != VPS_ID_IP.get(hostname)) {
+      to_insert.push([hostname, ip.v4]);
     }
   });
   await DB.q(

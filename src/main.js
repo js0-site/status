@@ -4,10 +4,9 @@
 import "@3-/default";
 import loadYml from "./loadYml.js";
 import srvId from "./db/srvId.js";
-import VPS_IP_NAME from "./db/VPS_IP_NAME.js";
-import VPS_ID_IP from "./db/VPS_ID_IP.js";
 import Watch from "./Watch.js";
 import send from "./send.js";
+import SRV from "./SRV.js";
 
 const TASK = new Map(),
   watch = async () => {
@@ -20,25 +19,11 @@ const TASK = new Map(),
 
 await Promise.all(
   Object.entries(loadYml("watch")).map(async ([srv_tag, args]) => {
-    console.log(srv_tag);
     const srv_id = await srvId(srv_tag),
       [srv, tag] = srv_tag.split("/"),
       task = TASK.default(srv, () => []),
       push = (args) => task.push([srv_id, ...args]);
-
-    switch (srv) {
-      case "ipv6_proxy":
-        const { auth, port } = args;
-        args.vps.map((vps) => {
-          push([, vps, auth, port]);
-        });
-        break;
-      case "redis_sentinel":
-        const vps = args.vps;
-        args.vps = vps.slice(1).map((name) => VPS_ID_IP.get(name)[1]);
-        push([tag, vps, args, VPS_IP_NAME]);
-        break;
-    }
+    SRV[srv](tag, push, args);
   }),
 );
 

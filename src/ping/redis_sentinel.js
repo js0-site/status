@@ -16,7 +16,7 @@ const redisGet = async (cluster, conf) => {
   return (await p.exec()).map(([_, i]) => i);
 };
 
-export default async (host, { port, password, cluster, vps }, ip_name) => {
+export default async ({ port, password, cluster, vps }, ip_name) => {
   const err_li = [],
     addErr = err_li.push.bind(err_li),
     errIpPortMsg = (ip, port, msg) => {
@@ -26,7 +26,7 @@ export default async (host, { port, password, cluster, vps }, ip_name) => {
     result = await redisGet(cluster, {
       port,
       password,
-      host,
+      host: vps[0],
     });
 
   const info = result.pop().split("\n");
@@ -36,7 +36,7 @@ export default async (host, { port, password, cluster, vps }, ip_name) => {
       cluster[pos],
       li.map((i) => new Map(pair(i))),
     );
-    const sentinels_not_exist = new Set(vps);
+    const sentinels_not_exist = new Set(vps.slice(1));
     sentinels_li.map((i) => {
       const map = new Map(pair(i)),
         ip = map.get("ip"),
