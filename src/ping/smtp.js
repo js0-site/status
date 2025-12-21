@@ -21,12 +21,21 @@ export default async ({ host, user, password, vps }) => {
       [v4, v6].map(async (ip, pos) =>
         Promise.all([
           ipCheck(name, ip, ip_li_li[pos]),
-
           (async () => {
-            try {
-              await tlsSmtp(user, password, ip, host);
-            } catch (err) {
-              err_li.push(host + " SMTP 异常 : " + name + " " + ip + " " + err);
+            let retry = 0;
+            for (;;) {
+              try {
+                await tlsSmtp(user, password, ip, host);
+                break;
+              } catch (err) {
+                if (++retry > 3) {
+                  err_li.push(
+                    host + " SMTP 异常 : " + name + " " + ip + " " + err,
+                  );
+                  break;
+                }
+                console.log("retry", retry, host, "SMTP", name, ip, err);
+              }
             }
           })(),
         ]),

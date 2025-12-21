@@ -4,7 +4,7 @@
   "workspaces": {
     "": {
       "dependencies": {
-        "@3-/console": "^0.1.1",
+        "@3-/console": "^0.1.2",
         "@3-/default": "^0.1.9",
         "@3-/doh": "^0.1.3",
         "@3-/int": "^0.1.1",
@@ -16,7 +16,7 @@
         "@3-/reset": "^0.1.2",
         "@3-/tcpping": "^0.1.5",
         "@3-/time": "^0.1.17",
-        "@3-/tls_smtp": "^0.1.1",
+        "@3-/tls_smtp": "^0.1.2",
         "@3-/txt_id": "^0.1.7",
         "@3-/val_id": "^0.1.1",
         "@3-/yml": "^0.1.14",
@@ -59,7 +59,7 @@
 
     "@3-/blake3-win32-x64-msvc": ["@3-/blake3-win32-x64-msvc@1.0.10", "http://mirrors.cloud.tencent.com/npm/@3-/blake3-win32-x64-msvc/-/blake3-win32-x64-msvc-1.0.10.tgz", { "os": "win32", "cpu": "x64" }, "sha512-psAuIS267OV3xZHZUas9l4gCltQ0UQzAHewAdQ1tC+SwcIkeeC7bhAM8AaAhJTcHF7FN/ttIRcNaADlDQgFW7Q=="],
 
-    "@3-/console": ["@3-/console@0.1.1", "http://mirrors.cloud.tencent.com/npm/@3-/console/-/console-0.1.1.tgz", {}, "sha512-sXhTLxlSV4Mc2fV6dUrXfp7idiQm9QgVpHdST6RjLdJvP0vzfw8AhN+9/0sxhPi8l/h668uCGRqpy+cu7cS3uw=="],
+    "@3-/console": ["@3-/console@0.1.2", "", {}, "sha512-zRLjCSwKPBmThI2FslcoX7GQDm3kwKyTulVbwrbIyuI3yBJPnEU1iTqeVjFKbhvEznHRQWqQ2gA4DB03kq0TIg=="],
 
     "@3-/default": ["@3-/default@0.1.9", "http://mirrors.cloud.tencent.com/npm/@3-/default/-/default-0.1.9.tgz", {}, "sha512-NWPTgy6W0t7bUFVJ74fzgy9+gbQK8nkPJpx1PnTVrjX5vN3g8sECQGDCjesgtpy2vtii3ASNAUtS8MdtP4YZyw=="],
 
@@ -87,7 +87,7 @@
 
     "@3-/time": ["@3-/time@0.1.17", "http://mirrors.cloud.tencent.com/npm/@3-/time/-/time-0.1.17.tgz", {}, "sha512-N390Wg0P+DtGXfAHr8W9Kqik7dTT0TAwKAjlOhTdaIgHx0bEFoBUX3z4BG7DdMNB8IF+8wHlkZBqPZDMW7z2ew=="],
 
-    "@3-/tls_smtp": ["@3-/tls_smtp@0.1.1", "", {}, "sha512-3jN7TYD+9U4dGPsQipdDTkeJRGyGbi1u52u5SuulP5lBTQgdyUODmcxBHkMzvXzUOHSOCPjTU3SHeMePHGj4ig=="],
+    "@3-/tls_smtp": ["@3-/tls_smtp@0.1.2", "", {}, "sha512-o+0xr3bvoI2ID5JoQGS8Kvs69eLRXkxlg+0IOJvQWehYVHdPWJ1cqzJaYrEi3roXpcD/i3TZ3aTYhyGwBvPERQ=="],
 
     "@3-/txt_id": ["@3-/txt_id@0.1.7", "http://mirrors.cloud.tencent.com/npm/@3-/txt_id/-/txt_id-0.1.7.tgz", { "dependencies": { "@3-/blake3": "^1.0.10" } }, "sha512-3WYsMj4fzl22WLLt7+W0N1/pnSs4cSvOjSQp1YTE+YLNOs+IjM5mzsDlr8QWm9rIng2PT1J8G5C9zaXPYmq+jw=="],
 
